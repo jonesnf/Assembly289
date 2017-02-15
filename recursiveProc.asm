@@ -15,10 +15,17 @@
 	
 	
 	addNumbers:
+		addi $sp, $sp, -4
+		sw $ra, 0($sp)
 		
 		li $t0, 500
 		add $v1, $a0, $a1
-		addi $a0, $a0, 100
-		blt $v1, $t0, addNumbers
+		bge $v1, $t0, pop
 		
+		addi $a0, $a0, 100
+		jal addNumbers
+		
+	pop:
+		lw $ra, 0($sp)
+		addi $sp, $sp, 4
 		jr $ra

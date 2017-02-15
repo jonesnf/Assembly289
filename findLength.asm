@@ -1,5 +1,5 @@
 .data
-	string: .asciiz "hello"
+	string: .asciiz "hellos"
 .text
 	main: 
 		li $t0, 0
